@@ -1,6 +1,12 @@
-# CData Dremio ARP Connector for Tally ERP
+# CData Dremio ARP Connector for Tally
 
-The Tally ERP connector allows Dremio to connect to and query data in Tally ERP. This can then allow you to build custom reports, dashboards, or even just ad-hoc SQL via your client tool of choice. Note that it does require a third-party JDBC driver that is not free, but does allow a free trial.
+The Tally connector allows Dremio to connect to and query data in Tally. This can then allow you to build custom reports, dashboards, or even just ad-hoc SQL via your client tool of choice. Note that it does require a third-party JDBC driver that is not free, but does allow a free trial.
+
+## Edit File Contents
+
+Edit the contents of the file *pom.xml*:
+
+* Find {VERSION} in pom.xml and replace it with your Dremio version, e.g. 25.1.1-202409260159070462-716c0676
 
 ## ARP Overview
 
@@ -46,9 +52,10 @@ If an operation or function is not specified in the ARP file, then Dremio will h
 
 1. Run the following command in the root directory for the Connector (the connector that contains the *pom.xml* file): `mvn clean install`
 2. Place the built JAR file (from the *target* folder) in the /jars/ directory of your Dremio installation. For example:
-    `docker cp PATH\TO\dremio-classname-plugin-20.0.0.jar dremio_image_name:/opt/dremio/jars/`
-3. Download and install the [Tally ERP JDBC Driver from CData](https://www.cdata.com/drivers/tally/download/jdbc)* and copy the JAR file to the /jars/3rdparty/ directory of your Dremio installation. For example:
-    `docker cp PATH\TO\cdata.jdbc.classname.jar dremio_image_name:/opt/dremio/jars/3rdparty/`
+    `docker cp PATH\TO\dremio-tally-plugin-20.0.0.jar dremio_image_name:/opt/dremio/jars/`
+3. Download and install the [Tally JDBC Driver from CData](https://www.cdata.com/drivers/access/download/jdbc)* and copy the JAR file to the /jars/3rdparty/ directory of your Dremio installation. For example:
+    `docker cp PATH\TO\cdata.jdbc.tally.jar dremio_image_name:/opt/dremio/jars/3rdparty/`
 4. Restart Dremio
 
 **Note: you will need a trial or paid license of the CData JDBC Driver to use the Driver in Dremio.*
+
